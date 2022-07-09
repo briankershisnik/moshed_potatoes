@@ -6,6 +6,7 @@ import reportWebVitals from './reportWebVitals';
 import { BrowserRouter } from 'react-router-dom';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import { initMiddleware } from 'devise-axios';
+import MovieProvider from './components/providers/MovieProvider';
 
 initMiddleware()
 
@@ -13,7 +14,9 @@ const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <React.StrictMode>
     <BrowserRouter>
-      <App />
+      <MovieProvider>
+        <App />
+      </MovieProvider>
     </BrowserRouter>
   </React.StrictMode>
 );
