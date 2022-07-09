@@ -6,21 +6,24 @@ import Navbar from './components/shared/Navbar';
 import Login from './components/auth/Login';
 import Register from './components/auth/Register';
 import ProtectedRoute from './components/auth/ProtectedRoute'
-import Movies from './components/movies/Movies'
+import Movies from './components/movies/Movies';
+import FetchUser from './components/auth/FetchUser'
 
 function App() {
   return (
     <>
      <Navbar />
-      <Routes>
-        <Route path="/" element={<Home />} />
-        <Route path='/' element={<ProtectedRoute />}>
-          <Route path='movies' element={<Movies />} />
-        </Route>
-        <Route path='/login' element={<Login />} />
-        <Route path='/register' element={<Register />} />
-        <Route path="/*" element={<Nomatch />} />
-      </Routes>
+     <FetchUser>
+        <Routes>
+          <Route path="/" element={<Home />} />
+          <Route path='/' element={<ProtectedRoute />}>
+            <Route path='movies' element={<Movies />} />
+          </Route>
+          <Route path='/login' element={<Login />} />
+          <Route path='/register' element={<Register />} />
+          <Route path="/*" element={<Nomatch />} />
+        </Routes>
+      </FetchUser>
     </>
   )
 }
