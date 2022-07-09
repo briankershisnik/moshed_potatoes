@@ -34,7 +34,7 @@ class Api::MoviesController < ApplicationController
 
   private
     def movie_params
-      params.require(:movie).permit(:title, :desc)
+      params.require(:movie).permit(:title, :desc, :mlink)
     end
 
     def set_movie

@@ -2,6 +2,9 @@ import React from 'react'
 import { Link } from 'react-router-dom';
 import { AuthConsumer } from '../providers/AuthProvider';
 
+
+
+
 const Navbar = ({ user, handleLogout }) => {
 
   const rightNavItems = () => {
@@ -9,6 +12,14 @@ const Navbar = ({ user, handleLogout }) => {
     if (user) {
       return (
         <>
+           <Link to='movies'>
+             <li>movies</li>
+          </Link>
+          <Link to='/reviews'>
+             <li>Review</li>
+          </Link>
+
+
           <li onClick={() => handleLogout() }>
             Logout
           </li>
@@ -17,6 +28,7 @@ const Navbar = ({ user, handleLogout }) => {
     } else {
       return (
         <>
+
           <Link to='/login'>
             <li>
               Login

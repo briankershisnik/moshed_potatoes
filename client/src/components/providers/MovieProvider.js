@@ -6,7 +6,7 @@ export const MovieContext = React.createContext()
 
 export const MovieConsumer = MovieContext.Consumer;
 
-const MovieProvider = ({ any }) => {
+const MovieProvider = ({ children }) => {
   const [movies, setMovies] = useState([])
   const [errors, setErrors] = useState(null)
 
@@ -86,7 +86,7 @@ const MovieProvider = ({ any }) => {
       updateMovie,
       deleteMovie,
     }}>
-      { any }
+      { children }
     </MovieContext.Provider>
   )
 }
