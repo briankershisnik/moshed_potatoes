@@ -1,25 +1,30 @@
-import logo from './logo.svg';
-import './App.css';
+import './App.css'
+import { Routes, Route } from 'react-router-dom'
+import Home from './components/shared/home/Home'
+import Nomatch from './components/shared/Nomatch'
+import Navbar from './components/shared/Navbar'
+import Login from './components/auth/Login'
+import Register from './components/auth/Register'
+import ProtectedRoute from './components/auth/ProtectedRoute';
+import FetchUser from './components/auth/FetchUser';
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+    <>
+      <Navbar />
+      <FetchUser>
+        <Routes>
+          <Route path="/" element={<Home />} />
+          <Route path="/" element={<ProtectedRoute />}>
+            {/* <Route path='' element={< />} /> */}
+          </Route>
+          <Route path="/login" element={<Login />} />
+          <Route path="/register" element={<Register />} />
+          <Route path="/*" element={<Nomatch />} />
+        </Routes>
+      </FetchUser>
+    </>
+  )
 }
 
-export default App;
+export default App
